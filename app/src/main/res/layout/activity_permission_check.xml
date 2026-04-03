@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="16dp"
+    android:background="?attr/colorSurface">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Welcome to PriorityPing"
+        android:textAppearance="?attr/textAppearanceHeadlineMedium"
+        android:layout_marginTop="32dp"
+        android:layout_marginBottom="8dp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="To ensure you never miss a priority alert, please grant the following permissions."
+        android:textAppearance="?attr/textAppearanceBodyMedium"
+        android:layout_marginBottom="32dp"
+        android:textColor="?attr/colorOnSurfaceVariant" />
+
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/notificationAccessCard"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="12dp"
+        app:cardElevation="0dp"
+        app:strokeWidth="1dp"
+        app:strokeColor="?attr/colorOutlineVariant">
+        <RelativeLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:padding="16dp">
+            <ImageView android:id="@+id/icNotif" android:layout_width="24dp" android:layout_height="24dp" android:src="@drawable/ic_bell_priority" android:layout_centerVertical="true"/>
+            <LinearLayout android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_toEndOf="@id/icNotif" android:layout_toStartOf="@id/btnGrantNotif" android:layout_marginStart="16dp" android:orientation="vertical">
+                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/permission_notification_title" android:textStyle="bold"/>
+                <TextView android:id="@+id/statusNotif" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="REQUIRED" android:textColor="@color/colorError" android:textAppearance="?attr/textAppearanceBodySmall"/>
+            </LinearLayout>
+            <Button android:id="@+id/btnGrantNotif" style="@style/Widget.Material3.Button.TextButton" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_alignParentEnd="true" android:text="FIX" />
+        </RelativeLayout>
+    </com.google.android.material.card.MaterialCardView>
+
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/dndAccessCard"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="12dp"
+        app:cardElevation="0dp"
+        app:strokeWidth="1dp"
+        app:strokeColor="?attr/colorOutlineVariant">
+        <RelativeLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:padding="16dp">
+            <ImageView android:id="@+id/icDnd" android:layout_width="24dp" android:layout_height="24dp" android:src="@drawable/ic_bell_priority" android:layout_centerVertical="true"/>
+            <LinearLayout android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_toEndOf="@id/icDnd" android:layout_toStartOf="@id/btnGrantDnd" android:layout_marginStart="16dp" android:orientation="vertical">
+                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/permission_dnd_title" android:textStyle="bold"/>
+                <TextView android:id="@+id/statusDnd" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="REQUIRED" android:textColor="@color/colorError" android:textAppearance="?attr/textAppearanceBodySmall"/>
+            </LinearLayout>
+            <Button android:id="@+id/btnGrantDnd" style="@style/Widget.Material3.Button.TextButton" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_alignParentEnd="true" android:text="FIX" />
+        </RelativeLayout>
+    </com.google.android.material.card.MaterialCardView>
+
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/batteryCard"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="32dp"
+        app:cardElevation="0dp"
+        app:strokeWidth="1dp"
+        app:strokeColor="?attr/colorOutlineVariant">
+        <RelativeLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:padding="16dp">
+            <ImageView android:id="@+id/icBattery" android:layout_width="24dp" android:layout_height="24dp" android:src="@drawable/ic_bell_priority" android:layout_centerVertical="true"/>
+            <LinearLayout android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_toEndOf="@id/icBattery" android:layout_toStartOf="@id/btnGrantBattery" android:layout_marginStart="16dp" android:orientation="vertical">
+                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/permission_battery_title" android:textStyle="bold"/>
+                <TextView android:id="@+id/statusBattery" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="OPTIMIZING" android:textColor="@color/colorWarning" android:textAppearance="?attr/textAppearanceBodySmall"/>
+            </LinearLayout>
+            <Button android:id="@+id/btnGrantBattery" style="@style/Widget.Material3.Button.TextButton" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_alignParentEnd="true" android:text="OPTIMIZE" />
+        </RelativeLayout>
+    </com.google.android.material.card.MaterialCardView>
+
+    <View android:layout_width="0dp" android:layout_height="0dp" android:layout_weight="1" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btnContinue"
+        android:layout_width="match_parent"
+        android:layout_height="56dp"
+        android:text="Continue"
+        android:enabled="false"
+        app:cornerRadius="12dp" />
+
+</LinearLayout>

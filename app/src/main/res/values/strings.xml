@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">PriorityPing</string>
+    <string name="permission_notification_title">Notification Access</string>
+    <string name="permission_notification_desc">Required to detect messages from priority contacts</string>
+    <string name="permission_dnd_title">Do Not Disturb Override</string>
+    <string name="permission_dnd_desc">Required to alert you even in silent or DND mode</string>
+    <string name="permission_battery_title">Battery Optimization</string>
+    <string name="permission_battery_desc">Prevent Android from killing PriorityPing in the background</string>
+    <string name="status_active">Monitoring Active</string>
+    <string name="status_inactive">Permission Required</string>
+    <string name="no_contacts_yet">No priority contacts yet</string>
+    <string name="save_success">Contact saved</string>
+    <string name="save_duplicate">A contact with this name already exists for this app</string>
+    <string name="how_it_works_title">How PriorityPing works</string>
+    <string name="how_it_works_desc">1. Add your priority contacts from WhatsApp, Instagram, or Snapchat.\n2. Grant the necessary permissions.\n3. PriorityPing will alert you even if your phone is on silent or DND.</string>
+    <string name="service_paused">Service Paused</string>
+    <string name="enable_service">Enable PriorityPing</string>
+    <string name="fix_this">Fix This</string>
+    <string name="add_contact">Add Contact</string>
+    <string name="priority_contacts">Priority Contacts</string>
+    <string name="nickname_optional">Nickname (optional, e.g. My Mom)</string>
+    <string name="save_contact">Save Contact</string>
+    <string name="vibration_light_desc">Two short pulses</string>
+    <string name="vibration_normal_desc">Strong repeating burst</string>
+    <string name="vibration_hard_desc">Intense long pulses</string>
+    <string name="vibration_very_hard_desc">Maximum alert pattern</string>
+
+    <string name="feedback_title">Send Feedback</string>
+    <string name="feedback_header">We\'d love your feedback</string>
+    <string name="feedback_body_hint">Describe your feedback in detail…</string>
+    <string name="feedback_subject_hint">Subject</string>
+    <string name="feedback_send_button">Send Feedback</string>
+    <string name="feedback_opens_email">This will open your email app</string>
+    <string name="feedback_no_email_app">No email app found. Please install Gmail or another email app.</string>
+    <string name="feedback_device_info_label">Include device info (helps fix bugs)</string>
+    <string name="feedback_device_info_hint">Includes: Android version, app version, device model. No personal data.</string>
+    <string name="feedback_chip_bug">Bug Report</string>
+    <string name="feedback_chip_feature">Feature Request</string>
+    <string name="feedback_chip_general">General Feedback</string>
+    <string name="support_section_title">Support &amp; Feedback</string>
+    <string name="support_feedback_row_title">Send Feedback</string>
+    <string name="support_feedback_row_subtitle">Bug reports, feature requests, say hello</string>
+    <string name="support_rate_row_title">Enjoying PriorityPing?</string>
+    <string name="support_rate_row_subtitle">Let others know by leaving a review</string>
+    <string name="feedback_type">Feedback Type</string>
+    <string name="feedback_header_desc">Help us improve PriorityPing — report bugs, suggest features, or just say hello.</string>
+</resources>

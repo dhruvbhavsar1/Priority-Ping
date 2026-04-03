@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="108dp"
+    android:height="108dp"
+    android:viewportWidth="108"
+    android:viewportHeight="108">
+
+    <!-- Sound waves Left -->
+    <path
+        android:pathData="M30,35 C22,45 22,63 30,73"
+        android:strokeWidth="4"
+        android:strokeColor="#3498DB"
+        android:strokeLineCap="round" />
+    <path
+        android:pathData="M20,30 C8,45 8,63 20,78"
+        android:strokeWidth="4"
+        android:strokeColor="#3498DB"
+        android:strokeLineCap="round" />
+
+    <!-- Sound waves Right -->
+    <path
+        android:pathData="M78,35 C86,45 86,63 78,73"
+        android:strokeWidth="4"
+        android:strokeColor="#3498DB"
+        android:strokeLineCap="round" />
+    <path
+        android:pathData="M88,30 C100,45 100,63 88,78"
+        android:strokeWidth="4"
+        android:strokeColor="#3498DB"
+        android:strokeLineCap="round" />
+
+    <!-- Bell Outline -->
+    <path
+        android:pathData="M54,25 C45,25 38,32 38,45 L38,65 C38,68 35,70 30,72 L78,72 C73,70 70,68 70,65 L70,45 C70,32 63,25 54,25 Z"
+        android:strokeWidth="3.5"
+        android:strokeColor="#3498DB"
+        android:fillColor="#00000000"
+        android:strokeLineJoin="round" />
+
+    <!-- Bell Bottom (Clapper) -->
+    <path
+        android:pathData="M48,72 C48,78 60,78 60,72"
+        android:strokeWidth="3.5"
+        android:strokeColor="#3498DB"
+        android:fillColor="#00000000" />
+
+    <!-- Sketched 'P' inside bell -->
+    <path
+        android:pathData="M50,42 L50,65 M50,42 C58,42 62,48 58,54 C54,58 50,54 50,54"
+        android:strokeWidth="2.5"
+        android:strokeColor="#000000"
+        android:fillColor="#00000000"
+        android:strokeLineCap="round"
+        android:strokeLineJoin="round" />
+
+    <!-- Sketched 'P' shadow/offset effect to match the image -->
+    <path
+        android:pathData="M51,43 L51,64 M51,43 C57,43 61,47 57,53 C53,57 51,53 51,53"
+        android:strokeWidth="1"
+        android:strokeColor="#3498DB"
+        android:fillColor="#00000000"
+        android:strokeLineCap="round" />
+
+</vector>
