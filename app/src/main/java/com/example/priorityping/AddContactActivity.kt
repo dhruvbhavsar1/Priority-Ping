@@ -65,9 +65,9 @@ class AddContactActivity : AppCompatActivity() {
     }
 
     private fun setupClickListeners() {
-        binding.priorityHighCard.setOnClickListener { updatePrioritySelection(PriorityLevel.HIGH) }
-        binding.priorityMediumCard.setOnClickListener { updatePrioritySelection(PriorityLevel.MEDIUM) }
-        binding.priorityNormalCard.setOnClickListener { updatePrioritySelection(PriorityLevel.NORMAL) }
+        binding.priorityHighTab.setOnClickListener { updatePrioritySelection(PriorityLevel.HIGH) }
+        binding.priorityMediumTab.setOnClickListener { updatePrioritySelection(PriorityLevel.MEDIUM) }
+        binding.priorityNormalTab.setOnClickListener { updatePrioritySelection(PriorityLevel.NORMAL) }
 
         binding.vibrateLightCard.setOnClickListener { updateVibrationSelection("LIGHT") }
         binding.vibrateNormalCard.setOnClickListener { updateVibrationSelection("NORMAL") }
@@ -98,29 +98,55 @@ class AddContactActivity : AppCompatActivity() {
 
     private fun updatePrioritySelection(priority: PriorityLevel) {
         selectedPriority = priority
-        binding.radioHigh.isChecked = priority == PriorityLevel.HIGH
-        binding.radioMedium.isChecked = priority == PriorityLevel.MEDIUM
-        binding.radioNormal.isChecked = priority == PriorityLevel.NORMAL
         
-        val highlightColor = ContextCompat.getColor(this, R.color.colorPrimary)
-        val defaultColor = ContextCompat.getColor(this, R.color.colorSurfaceVariant)
+        // Reset all to default unselected state
+        binding.priorityHighTab.setBackgroundColor(android.graphics.Color.TRANSPARENT)
+        binding.priorityHighTab.setTextColor(android.graphics.Color.parseColor("#AAAAAA"))
         
-        binding.priorityHighCard.strokeWidth = if (priority == PriorityLevel.HIGH) 4 else 1
-        binding.priorityHighCard.setStrokeColor(ColorStateList.valueOf(if (priority == PriorityLevel.HIGH) highlightColor else defaultColor))
+        binding.priorityMediumTab.setBackgroundColor(android.graphics.Color.TRANSPARENT)
+        binding.priorityMediumTab.setTextColor(android.graphics.Color.parseColor("#AAAAAA"))
         
-        binding.priorityMediumCard.strokeWidth = if (priority == PriorityLevel.MEDIUM) 4 else 1
-        binding.priorityMediumCard.setStrokeColor(ColorStateList.valueOf(if (priority == PriorityLevel.MEDIUM) highlightColor else defaultColor))
+        binding.priorityNormalTab.setBackgroundColor(android.graphics.Color.TRANSPARENT)
+        binding.priorityNormalTab.setTextColor(android.graphics.Color.parseColor("#AAAAAA"))
         
-        binding.priorityNormalCard.strokeWidth = if (priority == PriorityLevel.NORMAL) 4 else 1
-        binding.priorityNormalCard.setStrokeColor(ColorStateList.valueOf(if (priority == PriorityLevel.NORMAL) highlightColor else defaultColor))
+        // Highlight the selected tab
+        when (priority) {
+            PriorityLevel.HIGH -> {
+                binding.priorityHighTab.setBackgroundColor(android.graphics.Color.parseColor("#4CAF50"))
+                binding.priorityHighTab.setTextColor(android.graphics.Color.WHITE)
+            }
+            PriorityLevel.MEDIUM -> {
+                binding.priorityMediumTab.setBackgroundColor(android.graphics.Color.parseColor("#4CAF50"))
+                binding.priorityMediumTab.setTextColor(android.graphics.Color.WHITE)
+            }
+            PriorityLevel.NORMAL -> {
+                binding.priorityNormalTab.setBackgroundColor(android.graphics.Color.parseColor("#4CAF50"))
+                binding.priorityNormalTab.setTextColor(android.graphics.Color.WHITE)
+            }
+        }
     }
 
     private fun updateVibrationSelection(vibration: String) {
         selectedVibration = vibration
+        
+        // Update radio buttons
         binding.radioLight.isChecked = vibration == "LIGHT"
         binding.radioNormalVib.isChecked = vibration == "NORMAL"
         binding.radioHard.isChecked = vibration == "HARD"
         binding.radioVeryHard.isChecked = vibration == "VERY_HARD"
+
+        // Update card appearances (Optional: adds a border to the selected card)
+        binding.vibrateLightCard.strokeWidth = if (vibration == "LIGHT") 2 else 0
+        binding.vibrateLightCard.strokeColor = android.graphics.Color.parseColor("#4CAF50")
+        
+        binding.vibrateNormalCard.strokeWidth = if (vibration == "NORMAL") 2 else 0
+        binding.vibrateNormalCard.strokeColor = android.graphics.Color.parseColor("#4CAF50")
+        
+        binding.vibrateHardCard.strokeWidth = if (vibration == "HARD") 2 else 0
+        binding.vibrateHardCard.strokeColor = android.graphics.Color.parseColor("#4CAF50")
+        
+        binding.vibrateVeryHardCard.strokeWidth = if (vibration == "VERY_HARD") 2 else 0
+        binding.vibrateVeryHardCard.strokeColor = android.graphics.Color.parseColor("#4CAF50")
     }
 
     private fun observeContact() {

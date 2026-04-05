@@ -3,377 +3,308 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/bg_main_gradient">
-
-    <com.google.android.material.appbar.AppBarLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@android:color/transparent"
-        app:elevation="0dp">
-
-        <com.google.android.material.appbar.MaterialToolbar
-            android:id="@+id/toolbar"
-            android:layout_width="match_parent"
-            android:layout_height="?attr/actionBarSize"
-            android:background="@android:color/transparent"
-            android:theme="@style/ThemeOverlay.Material3.Dark.ActionBar"
-            app:title="@string/app_name"
-            app:titleCentered="true"
-            app:titleTextColor="#FFFFFF">
-
-            <ImageButton
-                android:id="@+id/btnSettings"
-                android:layout_width="48dp"
-                android:layout_height="48dp"
-                android:layout_gravity="end"
-                android:layout_marginEnd="8dp"
-                android:background="?attr/selectableItemBackgroundBorderless"
-                android:contentDescription="Settings"
-                android:src="@drawable/ic_settings"
-                app:tint="#FFFFFF" />
-        </com.google.android.material.appbar.MaterialToolbar>
-    </com.google.android.material.appbar.AppBarLayout>
+    android:background="#000000">
 
     <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        app:layout_behavior="@string/appbar_scrolling_view_behavior">
+        android:layout_height="match_parent">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            android:padding="16dp">
+            android:padding="20dp">
 
-            <!-- Service Status Card -->
-            <com.google.android.material.card.MaterialCardView
-                android:id="@+id/statusCard"
+            <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="20dp"
-                android:layout_marginBottom="24dp"
-                app:cardCornerRadius="16dp"
-                app:cardElevation="0dp"
-                app:strokeWidth="0dp">
+                android:layout_marginBottom="20dp">
 
-                <LinearLayout
-                    android:id="@+id/statusBackground"
-                    android:layout_width="match_parent"
+                <TextView
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:background="@drawable/bg_status_active"
-                    android:gravity="center_vertical"
-                    android:orientation="horizontal"
-                    android:padding="16dp">
+                    android:text="PriorityPing"
+                    android:textColor="#FFFFFF"
+                    android:textSize="28sp"
+                    android:textStyle="bold" />
 
-                    <View
-                        android:id="@+id/statusIndicator"
-                        android:layout_width="10dp"
-                        android:layout_height="10dp"
-                        android:layout_marginEnd="16dp"
-                        android:background="@drawable/status_dot"
-                        android:backgroundTint="#4CAF50" />
+                <ImageView
+                    android:id="@+id/btnSettings"
+                    android:layout_width="28dp"
+                    android:layout_height="28dp"
+                    android:layout_alignParentEnd="true"
+                    android:layout_centerVertical="true"
+                    android:src="@drawable/ic_settings"
+                    app:tint="#FFFFFF" />
+            </RelativeLayout>
+
+            <!-- Monitoring Card with Glow -->
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="160dp"
+                android:layout_marginBottom="32dp">
+
+                <!-- Glow effect (simplified with a shape) -->
+                <View
+                    android:layout_width="200dp"
+                    android:layout_height="200dp"
+                    android:layout_gravity="center"
+                    android:background="@drawable/bg_monitoring_glow" />
+
+                <com.google.android.material.card.MaterialCardView
+                    android:id="@+id/statusCard"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    app:cardBackgroundColor="#1A1A1A"
+                    app:cardCornerRadius="24dp"
+                    app:cardElevation="0dp"
+                    app:strokeColor="#33FFFFFF"
+                    app:strokeWidth="1dp">
 
                     <LinearLayout
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:gravity="center"
                         android:orientation="vertical">
 
                         <TextView
                             android:id="@+id/statusTitle"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="@string/status_active"
-                            android:textAppearance="?attr/textAppearanceTitleMedium"
+                            android:text="Monitoring Active"
                             android:textColor="#FFFFFF"
+                            android:textSize="24sp"
                             android:textStyle="bold" />
 
                         <TextView
                             android:id="@+id/statusSubtitle"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
+                            android:layout_marginTop="4dp"
                             android:text="Monitoring Active"
-                            android:textAppearance="?attr/textAppearanceBodySmall"
-                            android:textColor="#CAC4D0" />
+                            android:textColor="#AAAAAA"
+                            android:textSize="14sp" />
                     </LinearLayout>
+                </com.google.android.material.card.MaterialCardView>
+            </FrameLayout>
 
-                    <com.google.android.material.button.MaterialButton
-                        android:id="@+id/btnFixStatus"
-                        style="@style/Widget.Material3.Button.TonalButton"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="@string/fix_this"
-                        android:visibility="gone" />
-                </LinearLayout>
-            </com.google.android.material.card.MaterialCardView>
-
-            <androidx.constraintlayout.widget.ConstraintLayout
-                android:layout_width="match_parent"
+            <TextView
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="8dp">
+                android:layout_marginBottom="16dp"
+                android:text="Priority Contacts"
+                android:textColor="#FFFFFF"
+                android:textSize="20sp"
+                android:textStyle="bold" />
 
-                <TextView
-                    android:id="@+id/headerTitle"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/priority_contacts"
-                    android:textAppearance="?attr/textAppearanceHeadlineSmall"
-                    android:textColor="#FFFFFF"
-                    android:textStyle="bold"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
-
-                <com.google.android.material.button.MaterialButton
-                    android:id="@+id/btnAddContactGlobal"
-                    style="@style/Widget.Material3.Button.IconButton.Filled.Tonal"
-                    android:layout_width="40dp"
-                    android:layout_height="40dp"
-                    android:padding="0dp"
-                    app:icon="@drawable/ic_add"
-                    app:iconPadding="0dp"
-                    app:iconSize="20dp"
-                    app:layout_constraintBottom_toBottomOf="@id/headerTitle"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintTop_toTopOf="@id/headerTitle" />
-            </androidx.constraintlayout.widget.ConstraintLayout>
-
-            <!-- App Cards -->
+            <!-- WhatsApp Card -->
             <com.google.android.material.card.MaterialCardView
                 android:id="@+id/cardWhatsapp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="12dp"
+                app:cardBackgroundColor="#1A1A1A"
                 app:cardCornerRadius="16dp"
                 app:cardElevation="0dp"
-                app:strokeColor="#25D36640"
+                app:strokeColor="#33A78BFA"
                 app:strokeWidth="1dp">
 
                 <RelativeLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:background="@drawable/bg_card_whatsapp"
-                    android:padding="20dp">
+                    android:padding="16dp">
 
-                    <com.google.android.material.card.MaterialCardView
-                        android:id="@+id/iconContainerWhatsapp"
-                        android:layout_width="52dp"
-                        android:layout_height="52dp"
-                        app:cardBackgroundColor="#25D36626"
-                        app:cardCornerRadius="14dp"
-                        app:cardElevation="0dp">
-
-                        <ImageView
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:padding="8dp"
-                            android:src="@drawable/ic_whatsapp" />
-                    </com.google.android.material.card.MaterialCardView>
+                    <ImageView
+                        android:id="@+id/iconWhatsapp"
+                        android:layout_width="50dp"
+                        android:layout_height="50dp"
+                        android:src="@drawable/ic_whatsapp" />
 
                     <LinearLayout
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_centerVertical="true"
-                        android:layout_marginStart="18dp"
-                        android:layout_toEndOf="@id/iconContainerWhatsapp"
+                        android:layout_marginStart="16dp"
+                        android:layout_toEndOf="@id/iconWhatsapp"
                         android:orientation="vertical">
 
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="WhatsApp"
-                            android:textAppearance="?attr/textAppearanceTitleMedium"
-                            android:textColor="#FFFBFE" />
+                            android:textColor="#FFFFFF"
+                            android:textSize="18sp"
+                            android:textStyle="bold" />
 
                         <TextView
                             android:id="@+id/txtWhatsappCount"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="0 priority contacts"
-                            android:textAppearance="?attr/textAppearanceBodySmall"
-                            android:textColor="#CAC4D0" />
+                            android:textColor="#888888"
+                            android:textSize="14sp" />
                     </LinearLayout>
 
                     <com.google.android.material.button.MaterialButton
                         android:id="@+id/btnAddWhatsapp"
-                        style="@style/Widget.Material3.Button.IconButton.Outlined"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
+                        style="@style/Widget.Material3.Button.IconButton.Filled.Tonal"
+                        android:layout_width="36dp"
+                        android:layout_height="36dp"
                         android:layout_alignParentEnd="true"
                         android:layout_centerVertical="true"
+                        android:padding="0dp"
+                        app:backgroundTint="#33FFFFFF"
                         app:icon="@drawable/ic_add"
-                        app:strokeColor="#25D366" />
+                        app:iconGravity="textStart"
+                        app:iconPadding="0dp"
+                        app:iconSize="18dp"
+                        app:iconTint="#FFFFFF" />
                 </RelativeLayout>
             </com.google.android.material.card.MaterialCardView>
 
+            <!-- Instagram Card -->
             <com.google.android.material.card.MaterialCardView
                 android:id="@+id/cardInstagram"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="12dp"
+                app:cardBackgroundColor="#1A1A1A"
                 app:cardCornerRadius="16dp"
                 app:cardElevation="0dp"
-                app:strokeColor="#E1306C40"
+                app:strokeColor="#33A78BFA"
                 app:strokeWidth="1dp">
 
                 <RelativeLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:background="@drawable/bg_card_instagram"
-                    android:padding="20dp">
+                    android:padding="16dp">
 
-                    <com.google.android.material.card.MaterialCardView
-                        android:id="@+id/iconContainerInstagram"
-                        android:layout_width="52dp"
-                        android:layout_height="52dp"
-                        app:cardBackgroundColor="#E1306C26"
-                        app:cardCornerRadius="14dp"
-                        app:cardElevation="0dp">
-
-                        <ImageView
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:padding="8dp"
-                            android:src="@drawable/ic_instagram" />
-                    </com.google.android.material.card.MaterialCardView>
+                    <ImageView
+                        android:id="@+id/iconInstagram"
+                        android:layout_width="50dp"
+                        android:layout_height="50dp"
+                        android:src="@drawable/ic_instagram" />
 
                     <LinearLayout
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_centerVertical="true"
-                        android:layout_marginStart="18dp"
-                        android:layout_toEndOf="@id/iconContainerInstagram"
+                        android:layout_marginStart="16dp"
+                        android:layout_toEndOf="@id/iconInstagram"
                         android:orientation="vertical">
 
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="Instagram"
-                            android:textAppearance="?attr/textAppearanceTitleMedium"
-                            android:textColor="#FFFBFE" />
+                            android:textColor="#FFFFFF"
+                            android:textSize="18sp"
+                            android:textStyle="bold" />
 
                         <TextView
                             android:id="@+id/txtInstagramCount"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="0 priority contacts"
-                            android:textAppearance="?attr/textAppearanceBodySmall"
-                            android:textColor="#CAC4D0" />
+                            android:textColor="#888888"
+                            android:textSize="14sp" />
                     </LinearLayout>
 
                     <com.google.android.material.button.MaterialButton
                         android:id="@+id/btnAddInstagram"
-                        style="@style/Widget.Material3.Button.IconButton.Outlined"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
+                        style="@style/Widget.Material3.Button.IconButton.Filled.Tonal"
+                        android:layout_width="36dp"
+                        android:layout_height="36dp"
                         android:layout_alignParentEnd="true"
                         android:layout_centerVertical="true"
+                        android:padding="0dp"
+                        app:backgroundTint="#33FFFFFF"
                         app:icon="@drawable/ic_add"
-                        app:strokeColor="#E1306C" />
+                        app:iconGravity="textStart"
+                        app:iconPadding="0dp"
+                        app:iconSize="18dp"
+                        app:iconTint="#FFFFFF" />
                 </RelativeLayout>
             </com.google.android.material.card.MaterialCardView>
 
+            <!-- Snapchat Card -->
             <com.google.android.material.card.MaterialCardView
                 android:id="@+id/cardSnapchat"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="24dp"
+                android:layout_marginBottom="12dp"
+                app:cardBackgroundColor="#1A1A1A"
                 app:cardCornerRadius="16dp"
                 app:cardElevation="0dp"
-                app:strokeColor="#FFFC0040"
+                app:strokeColor="#33A78BFA"
                 app:strokeWidth="1dp">
 
                 <RelativeLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:background="@drawable/bg_card_snapchat"
-                    android:padding="20dp">
+                    android:padding="16dp">
 
-                    <com.google.android.material.card.MaterialCardView
-                        android:id="@+id/iconContainerSnapchat"
-                        android:layout_width="52dp"
-                        android:layout_height="52dp"
-                        app:cardBackgroundColor="#FFFC0026"
-                        app:cardCornerRadius="14dp"
-                        app:cardElevation="0dp">
-
-                        <ImageView
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:padding="8dp"
-                            android:src="@drawable/ic_snapchat" />
-                    </com.google.android.material.card.MaterialCardView>
+                    <ImageView
+                        android:id="@+id/iconSnapchat"
+                        android:layout_width="50dp"
+                        android:layout_height="50dp"
+                        android:src="@drawable/ic_snapchat" />
 
                     <LinearLayout
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_centerVertical="true"
-                        android:layout_marginStart="18dp"
-                        android:layout_toEndOf="@id/iconContainerSnapchat"
+                        android:layout_marginStart="16dp"
+                        android:layout_toEndOf="@id/iconSnapchat"
                         android:orientation="vertical">
 
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="Snapchat"
-                            android:textAppearance="?attr/textAppearanceTitleMedium"
-                            android:textColor="#FFFBFE" />
+                            android:textColor="#FFFFFF"
+                            android:textSize="18sp"
+                            android:textStyle="bold" />
 
                         <TextView
                             android:id="@+id/txtSnapchatCount"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="0 priority contacts"
-                            android:textAppearance="?attr/textAppearanceBodySmall"
-                            android:textColor="#CAC4D0" />
+                            android:textColor="#888888"
+                            android:textSize="14sp" />
                     </LinearLayout>
 
                     <com.google.android.material.button.MaterialButton
                         android:id="@+id/btnAddSnapchat"
-                        style="@style/Widget.Material3.Button.IconButton.Outlined"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
+                        style="@style/Widget.Material3.Button.IconButton.Filled.Tonal"
+                        android:layout_width="36dp"
+                        android:layout_height="36dp"
                         android:layout_alignParentEnd="true"
                         android:layout_centerVertical="true"
+                        android:padding="0dp"
+                        app:backgroundTint="#33FFFFFF"
                         app:icon="@drawable/ic_add"
-                        app:strokeColor="#FFFC00" />
+                        app:iconGravity="textStart"
+                        app:iconPadding="0dp"
+                        app:iconSize="18dp"
+                        app:iconTint="#FFFFFF" />
                 </RelativeLayout>
-            </com.google.android.material.card.MaterialCardView>
-
-            <!-- How it works card -->
-            <com.google.android.material.card.MaterialCardView
-                android:id="@+id/howItWorksCard"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                app:cardCornerRadius="16dp"
-                app:cardElevation="0dp"
-                app:strokeColor="?attr/colorOutlineVariant"
-                app:strokeWidth="1dp"
-                android:visibility="gone">
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical"
-                    android:padding="16dp">
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginBottom="8dp"
-                        android:text="@string/how_it_works_title"
-                        android:textAppearance="?attr/textAppearanceTitleMedium" />
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="@string/how_it_works_desc"
-                        android:textAppearance="?attr/textAppearanceBodySmall"
-                        android:textColor="?attr/colorOnSurfaceVariant" />
-                </LinearLayout>
             </com.google.android.material.card.MaterialCardView>
 
         </LinearLayout>
     </androidx.core.widget.NestedScrollView>
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/btnAddContactGlobal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|end"
+        android:layout_margin="24dp"
+        android:src="@drawable/ic_add"
+        app:backgroundTint="#5B4FCF"
+        app:tint="#FFFFFF"
+        app:fabSize="normal" />
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

@@ -38,7 +38,7 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        setSupportActionBar(binding.toolbar)
+        // setSupportActionBar(binding.toolbar)
 
         prefs = AppPreferences.getInstance(this)
 
@@ -62,11 +62,13 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun setupPulseAnimation() {
+        /*
         pulseAnimator = ObjectAnimator.ofFloat(binding.statusIndicator, "alpha", 0.4f, 1.0f).apply {
             duration = 1200
             repeatMode = ObjectAnimator.REVERSE
             repeatCount = ObjectAnimator.INFINITE
         }
+        */
     }
 
     private fun setupClickListeners() {
@@ -86,9 +88,11 @@ class MainActivity : AppCompatActivity() {
         binding.cardInstagram.setOnClickListener { launchContactList(SupportedApps.INSTAGRAM.appName) }
         binding.cardSnapchat.setOnClickListener { launchContactList(SupportedApps.SNAPCHAT.appName) }
 
+        /*
         binding.btnFixStatus.setOnClickListener {
             startActivity(Intent(this, PermissionCheckActivity::class.java))
         }
+        */
     }
 
     private fun launchAddContact(appName: String) {
@@ -110,19 +114,19 @@ class MainActivity : AppCompatActivity() {
         val isActive = isNotificationListenerGranted && prefs.isServiceEnabled
 
         if (!isActive) {
-            binding.statusBackground.setBackgroundResource(R.drawable.bg_status_inactive)
-            binding.statusIndicator.backgroundTintList = ContextCompat.getColorStateList(this, R.color.colorError)
+            // binding.statusBackground.setBackgroundResource(R.drawable.bg_status_inactive)
+            // binding.statusIndicator.backgroundTintList = ContextCompat.getColorStateList(this, R.color.colorError)
             binding.statusTitle.text = getString(R.string.status_inactive)
             binding.statusSubtitle.text = if (!isNotificationListenerGranted) "Notification access required" else "Service is paused"
-            binding.btnFixStatus.visibility = if (!isNotificationListenerGranted) View.VISIBLE else View.GONE
+            // binding.btnFixStatus.visibility = if (!isNotificationListenerGranted) View.VISIBLE else View.GONE
             pulseAnimator?.cancel()
-            binding.statusIndicator.alpha = 1.0f
+            // binding.statusIndicator.alpha = 1.0f
         } else {
-            binding.statusBackground.setBackgroundResource(R.drawable.bg_status_active)
-            binding.statusIndicator.backgroundTintList = ContextCompat.getColorStateList(this, android.R.color.transparent)
+            // binding.statusBackground.setBackgroundResource(R.drawable.bg_status_active)
+            // binding.statusIndicator.backgroundTintList = ContextCompat.getColorStateList(this, android.R.color.transparent)
             binding.statusTitle.text = getString(R.string.status_active)
             binding.statusSubtitle.text = "Monitoring Active"
-            binding.btnFixStatus.visibility = View.GONE
+            // binding.btnFixStatus.visibility = View.GONE
             if (pulseAnimator?.isRunning == false) {
                 pulseAnimator?.start()
             }

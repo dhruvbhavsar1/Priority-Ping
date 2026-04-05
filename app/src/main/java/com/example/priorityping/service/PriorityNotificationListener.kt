@@ -165,7 +165,13 @@ class PriorityNotificationListener : NotificationListenerService() {
     }
 
     private fun triggerVibrationOnly(vibration: String) {
-        val vibrator = getSystemService(VIBRATOR_SERVICE) as Vibrator
+        val vibrator = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.S) {
+            val vibratorManager = getSystemService(Context.VIBRATOR_MANAGER_SERVICE) as android.os.VibratorManager
+            vibratorManager.defaultVibrator
+        } else {
+            @Suppress("DEPRECATION")
+            getSystemService(Context.VIBRATOR_SERVICE) as Vibrator
+        }
         val pattern = getVibrationPattern(vibration)
         vibrator.vibrate(VibrationEffect.createWaveform(pattern, -1))
     }
@@ -174,6 +180,9 @@ class PriorityNotificationListener : NotificationListenerService() {
         val audioManager = getSystemService(Context.AUDIO_SERVICE) as AudioManager
         
         if (notificationManager.isNotificationPolicyAccessGranted) {
+            val originalFilter = notificationManager.currentInterruptionFilter
+            val originalRingerMode = audioManager.ringerMode
+
             notificationManager.setInterruptionFilter(NotificationManager.INTERRUPTION_FILTER_ALL)
             
             try {
@@ -185,7 +194,12 @@ class PriorityNotificationListener : NotificationListenerService() {
             triggerVibrationOnly(vibration)
 
             Handler(Looper.getMainLooper()).postDelayed({
-                notificationManager.setInterruptionFilter(NotificationManager.INTERRUPTION_FILTER_PRIORITY)
+                notificationManager.setInterruptionFilter(originalFilter)
+                try {
+                    audioManager.ringerMode = originalRingerMode
+                } catch (e: SecurityException) {
+                    Log.e(TAG, "Failed to restore ringer mode", e)
+                }
             }, 3000)
         } else {
             try {

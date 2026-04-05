@@ -55,14 +55,23 @@ class ContactListAdapter(
             
             binding.txtAvatar.setTextColor(if (contact.appName == "snapchat") Color.BLACK else Color.WHITE)
 
+            // App chip styling - Dark background with colored text and border
+            val appColor = app?.let { ContextCompat.getColor(binding.root.context, it.colorRes) } 
+                ?: ContextCompat.getColor(binding.root.context, R.color.colorPrimary)
+            
             binding.chipApp.text = app?.displayName ?: contact.appName
+            binding.chipApp.chipBackgroundColor = ColorStateList.valueOf(appColor).withAlpha(30) // Subtle tint
+            binding.chipApp.setTextColor(appColor)
+            binding.chipApp.chipStrokeColor = ColorStateList.valueOf(appColor).withAlpha(120)
+            binding.chipApp.chipStrokeWidth = 1f
+
             binding.chipPriority.text = contact.priorityLevel.displayName
             
-            // Part 2: Priority level chip colors
+            // Priority level chip colors - Ensuring high contrast in dark theme
             val priorityConfig = when (contact.priorityLevel) {
-                PriorityLevel.HIGH -> Triple("#3B0A0D", "#FF6B6B", "#CF6679")
-                PriorityLevel.MEDIUM -> Triple("#2D1F00", "#FFB74D", "#FB8C00")
-                PriorityLevel.NORMAL -> Triple("#1A2B1A", "#81C784", "#4CAF50")
+                PriorityLevel.HIGH -> Triple("#331011", "#FF8A80", "#FF5252") // Deep red bg, light red text
+                PriorityLevel.MEDIUM -> Triple("#332300", "#FFD180", "#FFAB40") // Deep orange bg, light orange text
+                PriorityLevel.NORMAL -> Triple("#0D2611", "#B9F6CA", "#69F0AE") // Deep green bg, light green text
             }
             
             binding.chipPriority.chipBackgroundColor = ColorStateList.valueOf(Color.parseColor(priorityConfig.first))

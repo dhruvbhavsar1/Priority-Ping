@@ -8,12 +8,12 @@
     app:cardCornerRadius="16dp"
     app:cardElevation="0dp"
     app:strokeColor="#FFFFFF1A"
-    app:strokeWidth="1dp">
+    app:strokeWidth="1.5dp">
 
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="#111111"
+        android:background="#000000"
         android:padding="16dp">
 
         <com.google.android.material.card.MaterialCardView
@@ -68,10 +68,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     app:chipMinHeight="24dp"
-                    android:textSize="10sp"
-                    android:textColor="#FFFFFF"
-                    app:chipBackgroundColor="#FFFFFF1A"
-                    app:chipStrokeWidth="0dp"/>
+                    android:textSize="10sp" />
 
                 <com.google.android.material.chip.Chip
                     android:id="@+id/chipPriority"

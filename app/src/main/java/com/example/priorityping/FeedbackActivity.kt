@@ -116,9 +116,7 @@ class FeedbackActivity : AppCompatActivity() {
         if (intent.resolveActivity(packageManager) != null) {
             startActivity(intent)
         } else {
-            Snackbar.make(binding.root, R.string.feedback_no_email_app, Snackbar.LENGTH_LONG)
-                .setAction("OK") { }
-                .show()
+            Toast.makeText(this, getString(R.string.feedback_no_email_app), Toast.LENGTH_LONG).show()
         }
     }
 
