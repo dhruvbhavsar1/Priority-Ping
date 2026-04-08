@@ -10,6 +10,7 @@ import android.view.MenuItem
 import android.view.View
 import android.view.animation.Animation
 import androidx.activity.viewModels
+import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.NotificationManagerCompat
 import androidx.core.content.ContextCompat
@@ -72,6 +73,10 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun setupClickListeners() {
+        binding.btnInfo.setOnClickListener {
+            showHowToUseDialog()
+        }
+
         binding.btnSettings.setOnClickListener {
             startActivity(Intent(this, SettingsActivity::class.java))
         }
@@ -114,19 +119,12 @@ class MainActivity : AppCompatActivity() {
         val isActive = isNotificationListenerGranted && prefs.isServiceEnabled
 
         if (!isActive) {
-            // binding.statusBackground.setBackgroundResource(R.drawable.bg_status_inactive)
-            // binding.statusIndicator.backgroundTintList = ContextCompat.getColorStateList(this, R.color.colorError)
             binding.statusTitle.text = getString(R.string.status_inactive)
             binding.statusSubtitle.text = if (!isNotificationListenerGranted) "Notification access required" else "Service is paused"
-            // binding.btnFixStatus.visibility = if (!isNotificationListenerGranted) View.VISIBLE else View.GONE
             pulseAnimator?.cancel()
-            // binding.statusIndicator.alpha = 1.0f
         } else {
-            // binding.statusBackground.setBackgroundResource(R.drawable.bg_status_active)
-            // binding.statusIndicator.backgroundTintList = ContextCompat.getColorStateList(this, android.R.color.transparent)
             binding.statusTitle.text = getString(R.string.status_active)
             binding.statusSubtitle.text = "Monitoring Active"
-            // binding.btnFixStatus.visibility = View.GONE
             if (pulseAnimator?.isRunning == false) {
                 pulseAnimator?.start()
             }
@@ -135,6 +133,19 @@ class MainActivity : AppCompatActivity() {
         if (!prefs.isServiceEnabled && isNotificationListenerGranted) {
             binding.statusTitle.text = getString(R.string.service_paused)
         }
+    }
+
+    private fun showHowToUseDialog() {
+        val dialogView = layoutInflater.inflate(R.layout.dialog_how_to_use, null)
+        val dialog = AlertDialog.Builder(this, R.style.Theme_PriorityPing_Dialog)
+            .setView(dialogView)
+            .create()
+
+        dialogView.findViewById<View>(R.id.btnDismiss).setOnClickListener {
+            dialog.dismiss()
+        }
+
+        dialog.show()
     }
 
     private fun observeContacts() {

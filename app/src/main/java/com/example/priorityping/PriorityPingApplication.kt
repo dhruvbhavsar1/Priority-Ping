@@ -35,6 +35,13 @@ class PriorityPingApplication : Application() {
                 description = "Alerts for priority contacts"
                 enableVibration(true)
                 setShowBadge(true)
+                setSound(
+                    android.media.RingtoneManager.getDefaultUri(android.media.RingtoneManager.TYPE_NOTIFICATION),
+                    android.media.AudioAttributes.Builder()
+                        .setUsage(android.media.AudioAttributes.USAGE_NOTIFICATION)
+                        .setContentType(android.media.AudioAttributes.CONTENT_TYPE_SONIFICATION)
+                        .build()
+                )
             }
 
             val manager = getSystemService(NotificationManager::class.java)
