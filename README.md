@@ -84,5 +84,7 @@ I'd love to hear from you!
 
 📧 Email: feedbacktopriorityping@gmail.com
 
-Please include details about your device and issue for faster resolution.---
+Please include details about your device and issue for faster resolution.
+
+---
 *Never miss what matters most. Stay connected with PriorityPing.*
