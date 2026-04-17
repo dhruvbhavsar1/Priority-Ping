@@ -62,5 +62,9 @@ For the "High Priority" sound to play while your phone is in Silent/Vibrate mode
 ## 🔒 Privacy
 PriorityPing processes notification metadata (sender name and app) locally on your device to trigger alerts. Your private message content is never read, stored, or shared.
 
+
+## 📥 Download APK
+
+[Download Latest APK](https://github.com/dhruvbhavsar1/Priority-Ping/releases)
 ---
 *Never miss what matters most. Stay connected with PriorityPing.*
