@@ -75,5 +75,14 @@ PriorityPing processes notification metadata (sender name and app) locally on yo
 ## 📥 Download APK
 
 [Download Latest APK](https://github.com/dhruvbhavsar1/Priority-Ping/releases)
----
+
+## 📬 Feedback & Support
+
+Have suggestions, found a bug, or want to improve PriorityPing?
+
+I'd love to hear from you!
+
+📧 Email: feedbacktopriorityping@gmail.com
+
+Please include details about your device and issue for faster resolution.---
 *Never miss what matters most. Stay connected with PriorityPing.*
