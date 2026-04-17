@@ -36,15 +36,10 @@ For the "High Priority" sound to play while your phone is in Silent/Vibrate mode
 ## 📸 Screenshots
 
 ## 📸 Screenshots
+   
+### 🏠 Home Screen             ### 📱 Priority Contacts                  ### ⚙️ Settings & Permissions
+![Home](screenshots/home.png)   ![Contacts](screenshots/contacts.png)      ![Settings](screenshots/settings.png)
 
-### 🏠 Home Screen
-![Home](screenshots/home.png)
-
-### 📱 Priority Contacts
-![Contacts](screenshots/contacts.png)
-
-### ⚙️ Settings & Permissions
-![Settings](screenshots/settings.png)
 
 
 ## 🔒 Privacy
