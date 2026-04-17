@@ -29,5 +29,5 @@ captures/
 # Firebase / API
 google-services.json
 
-# Env
+# Env files
 *.env
