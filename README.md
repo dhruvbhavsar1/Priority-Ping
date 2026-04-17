@@ -59,6 +59,15 @@ For the "High Priority" sound to play while your phone is in Silent/Vibrate mode
 </p>
 
 
+## ⚠️ Installation Instructions
+
+1. Download the APK from the release section.
+2. Open the APK file on your device.
+3. If you see a **Google Play Protect warning**, tap **"Install anyway"**.
+4. Grant required permissions after installation.
+
+> Note: This app is currently not published on the Play Store, so this warning is expected.
+
 ## 🔒 Privacy
 PriorityPing processes notification metadata (sender name and app) locally on your device to trigger alerts. Your private message content is never read, stored, or shared.
 
