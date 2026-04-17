@@ -1,6 +1,8 @@
 # PriorityPing 🔔
 
-PriorityPing is a smart notification manager designed to ensure you never miss important messages from your most important people, even when your phone is on silent.
+Priority-based notification manager that ensures important messages break through Silent & DND.
+
+👉 Never miss messages from people who matter.
 
 ## 🌟 Key Features
 
@@ -9,6 +11,13 @@ PriorityPing is a smart notification manager designed to ensure you never miss i
 - **Custom Vibrations:** Choose between different vibration intensities (Light, Normal, Hard, Very Hard) for your contacts.
 - **Quiet Hours:** Schedule times when the app should stay quiet (e.g., during sleep).
 - **Dark Mode UI:** A modern, clean, and easy-to-use dark interface.
+
+## ⚙️ How it works
+
+- Uses Notification Listener Service to monitor notifications  
+- Filters based on selected contacts/apps  
+- Triggers alert even in Silent / DND mode  
+- Runs as a background service with battery optimization handling  
 
 ## 🚀 How to Use
 
@@ -24,6 +33,12 @@ When you first open the app, you'll need to grant **Notification Access**. This 
    - **MEDIUM:** Custom Vibration only.
    - **NORMAL:** Default system behavior.
 5. Choose a **Vibration Type**.
+
+## 🔐 Permissions
+
+- Notification Access → read notifications  
+- Do Not Disturb Access → override silent mode  
+- Battery Optimization → keep service alive  
 
 ### 3. Silent Mode Tip 💡
 For the "High Priority" sound to play while your phone is in Silent/Vibrate mode, please ensure your **Alarm Volume** is turned up in your phone settings. PriorityPing uses the alarm stream to safely bypass system silence without changing your phone's ringer mode.
