@@ -26,5 +26,6 @@
 
     <color name="instagramPink">#E1306C</color>
     <color name="snapchatYellow">#FFFC00</color>
+    <color name="messagesBlue">#1A73E8</color>
 
 </resources>

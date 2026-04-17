@@ -47,8 +47,16 @@ object SupportedApps {
         colorRes = R.color.snapchatYellow,
         iconRes = R.drawable.ic_snapchat
     )
+    val MESSAGES = SupportedApp(
+        appName = "Messages",
+        displayName = "Messages",
+        packageName = "com.samsung.android.apps.messaging",
+        identifierHint = "Contact name (as shown in Messages)",
+        colorRes = R.color.messagesBlue,
+        iconRes = R.drawable.ic_messages
+    )
 
-    val ALL = listOf(WHATSAPP, WHATSAPP_BUSINESS, INSTAGRAM, SNAPCHAT)
+    val ALL = listOf(WHATSAPP, WHATSAPP_BUSINESS, INSTAGRAM, SNAPCHAT, MESSAGES)
 
     fun fromAppName(name: String): SupportedApp? = ALL.find { it.appName == name }
     fun fromPackageName(packageName: String): SupportedApp? = ALL.find { it.packageName == packageName }
