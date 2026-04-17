@@ -33,6 +33,19 @@ For the "High Priority" sound to play while your phone is in Silent/Vibrate mode
 - **No Sound in Silent Mode:** Double-check that your "Alarm" volume is not at zero.
 - **Notifications Not Detected:** Ensure "Notification Access" is enabled for PriorityPing in your phone's Android settings.
 - **App Stops Working:** Disable "Battery Optimization" for PriorityPing to ensure Android doesn't kill the background service.
+## 📸 Screenshots
+
+## 📸 Screenshots
+
+### 🏠 Home Screen
+![Home](screenshots/home.png)
+
+### 📱 Priority Contacts
+![Contacts](screenshots/contacts.png)
+
+### ⚙️ Settings & Permissions
+![Settings](screenshots/settings.png)
+
 
 ## 🔒 Privacy
 PriorityPing processes notification metadata (sender name and app) locally on your device to trigger alerts. Your private message content is never read, stored, or shared.
